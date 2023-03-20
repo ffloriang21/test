@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>::. Test Vocacional</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js"></script>
+  <script src="/src/app/routes/form.js"></script>
+  <!-- <script src="/src/verific.js"></script> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Ubuntu:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root{
+      --colorTextos: #11101067;
+    }
+
+    * {
+      margin: 20px 30px 20px;
+      padding: 1px;
+      box-sizing: border-box;
+    }
+    .layered-image {
+       background: linear-gradient(to right, transparent, rgb(166, 152, 248)),
+        url("./fondo_form.jpg");
+    }
+
+    body {
+      /*background: #00F260;  /* fallback for old browsers */
+      /*background: -webkit-linear-gradient(to right, #0575E6, #2ccabd);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #0575E6, #4fddc5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      width: 100%;
+      height: 100vh;
+    }
+
+    h1{
+      align-items: center;
+      text-align: center;
+      font-size: 22px;
+      margin: 10px 0;
+      font-weight: 700;
+    }
+
+    form{
+      /*background: white;*/
+      background:#e1f3f3b2  ;
+      width: 100%;
+      padding: 10px 40px 10px 0px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.13);
+    }
+
+    .form{
+      /*width: 100%;*/
+      margin: auto;
+    }
+
+    form .grupo{
+      position: relative;
+      margin: 25px;
+    }
+
+    input, textarea{
+      background: none;
+      height: 18px;
+      color: #5a5858;
+      font-size: 16px;
+      padding: 10px 10px 10x 5px;
+      display: block;
+      width: 100%;
+      border:none;
+      border-bottom: 1px solid var(--colorTextos);
+      resize: none;
+    }
+
+    input:focus, textarea:focus, select:focus{
+      outline: none;
+      color: rgb(94, 93, 93);
+    }
+    
+    input:focus~label,input:valid~label,textarea:focus~label,textarea:valid~label{
+      position: absolute;
+      top: -14px;
+      font-size: 12px;
+      color: rgb(0, 115, 255);   
+    }
+
+    label{
+      color: var(--colorTextos);
+      font-size: 14px;
+      position: absolute;
+      left: 5px;
+      top: 22px;
+      transition: 0.5s ease all;
+      pointer-events: none;
+    }
+
+    button{
+      display: block;
+      position: relative;
+      background: #00F260;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #0575E6, #00f2d2);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      width: 300px;
+      height: 40px;
+      border: none;
+      color: black;
+      border-radius: 4px;
+      font-size: 16px;
+      margin:0 0 0 40px;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background: #00F260;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #00F260, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #00F260, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    form .grupo option{
+      display: block;
+      width: 120px;
+      height: 15px;
+      color: rgb(10, 10, 10);
+      border-radius: 4px;
+      font-size: 16px;
+      margin: 10px auto;
+      margin-bottom: 3px;
+      cursor: pointer;
+    }
+    .caja {
+      display: block;
+      margin: 5px 0px 5px 28px;	
+      width: 120px;
+      border:1px solid #f3f1f1fa;
+      height:30px;
+      margin-bottom: 2px;
+      overflow: hidden;
+      width: 230px;
+      color: var(--colorTextos);
+      font-size: 14px;
+    }
+    select {
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      height: 30px;
+      padding: 5px;
+      width: 250px;
+    }
+    select:focus{ outline: none;}
+
+    .caja::after{
+      content:"\025be";
+      display:table-cell;
+      padding-top:7px;
+      text-align:center;
+      width:30px;
+      height:30px;
+      background-color:#d9d9d9;
+      position:absolute;
+      top:0;
+      right:0px;	
+      pointer-events: none;
+    }
+</style>
+</head>
+
+<body>
+
+  <div class="form">
+    <form action="/src/app/routes/form.js" method="post" id="form">
+      <h1>FORMULARIO DE REGISTRO</h1>
+
+      <div class="form">
+        <div class="grupo">
+          <input type="number" name="identific" id="identific" class="barrera" minlength="1" maxlength="11" required >
+            <label>Nro identifición:</label>
+        </div>
+
+        <div class="grupo">
+          <input type="text" name="nombre" id="nombre" class="barrera" minlength="3" maxlength="30" required>
+            <label>Nombre:</label>
+        </div>
+
+        <div class="grupo">
+          <input type="text" name="apellido_uno" id="apellido_uno" class="barrera" minlength="3" maxlength="30" required>
+          <label>Primer Apellido:</label>
+        </div>
+
+        <div class="grupo">
+          <input type="text" name="apellido_dos" id="apellido_dos" class="barrera" minlength="3" maxlength="30" required>
+          <label>Segundo Apellido:</label>
+        </div>
+
+        <div class="grupo">
+          <input type="number" name="edad" id="edad" class="barrera" minlength="3" maxlength="80" required>
+          <label>Edad:</label>
+        </div>
+
+        <div class="grupo" >
+          <label>sexo:</label>
+          <select class="caja" name="sexo" class="barrera" required>
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
+        </div>
+
+        <div class="grupo">
+          <input type="email" name="correo" id="correo" class="barrera" minlength="3" maxlength="80" required>
+          <label>Correo:</label>
+        </div>
+
+        <div class="grupo">
+          <input type="text" name="ndli" id="ndli" class="barrera" minlength="3" maxlength="230" required> 
+          <label>Nombre de la Institucion:</label>
+        </div>
+
+        <button type="submit"></a>Aceptar</button>
+        <p id="warning"></p>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
